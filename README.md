@@ -8,8 +8,4 @@ pnpm add rollup-plugin-proxy-dynamic-import -D
 
 1. `pnpm i`
 
-2. Run tests
-
-   ```sh
-   pnpm t
-   ```
+2. `pnpm run test`

@@ -4,6 +4,9 @@
 	"type": "module",
 	"description": "Proxy dynamic import: Only bundle static imports of dynamic imports, and treeshake out those static imports from dynamic imports",
 	"prettier": "@ydcjeff/configs/prettier",
+	"repository": {
+		"url": "https://github.com/ydcjeff/rollup-plugin-proxy-dynamic-import"
+	},
 	"author": "Jeff Yang",
 	"license": "MIT",
 	"keywords": [
