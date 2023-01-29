@@ -47,12 +47,12 @@ export { actions, load };
 
 exports[`rollup > js_ext > js_ext 2`] = `
 "function load() {
-	return 'js-ext-page';
+	return 'js_ext_non_entry_load';
 }
 
 const actions = {
 	default() {
-		return 'js-ext-page';
+		return 'js_ext_non_entry_actions';
 	},
 };
 
@@ -140,11 +140,11 @@ export {
 
 exports[`vite > js_ext > js_ext 2`] = `
 "function load() {
-  return \\"js-ext-page\\";
+  return \\"js_ext_non_entry_load\\";
 }
 const actions = {
   default() {
-    return \\"js-ext-page\\";
+    return \\"js_ext_non_entry_actions\\";
   }
 };
 export {
