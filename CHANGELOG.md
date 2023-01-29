@@ -1,5 +1,14 @@
 <!-- CHLOG_SPLIT_MARKER -->
 
+## [v0.1.3](https://github.com/ydcjeff/rollup-plugin-proxy-dynamic-import/compare/v0.1.2...v0.1.3)
+
+_2023-01-29_
+
+### Bug Fixes
+
+- [`cb99bc9`](https://github.com/ydcjeff/rollup-plugin-proxy-dynamic-import/commit/cb99bc9)
+  make vite peer dep optional + release permissions
+
 ## [v0.1.2](https://github.com/ydcjeff/rollup-plugin-proxy-dynamic-import/compare/v0.1.1...v0.1.2)
 
 _2023-01-29_
