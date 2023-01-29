@@ -1,5 +1,14 @@
 <!-- CHLOG_SPLIT_MARKER -->
 
+## [v0.1.2](https://github.com/ydcjeff/rollup-plugin-proxy-dynamic-import/compare/v0.1.1...v0.1.2)
+
+_2023-01-29_
+
+### Bug Fixes
+
+- [`5ac11fe`](https://github.com/ydcjeff/rollup-plugin-proxy-dynamic-import/commit/5ac11fe)
+  update pkg version
+
 ## [v0.1.1](https://github.com/ydcjeff/rollup-plugin-proxy-dynamic-import/compare/v0.1.0...v0.1.1)
 
 _2023-01-29_
