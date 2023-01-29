@@ -11,6 +11,13 @@ export interface ProxyDynamicImportOptions {
 	 */
 	exclude?: FilterPattern;
 	/**
+	 * This option is required to be defined to treeshake only used exports in
+	 * dynamic imports. This plugin creates facade modules to re-export used bindings
+	 * so that Rollup can treeshake ununsed ones. This is a workaround until Rollup
+	 * can treeshake dynamic imports OOTB.
+	 *
+	 * https://github.com/rollup/rollup/issues/3447
+	 *
 	 * Export names to re-export. Use `*` to re-export all, not that it does not
 	 * re-export `default` export.
 	 */

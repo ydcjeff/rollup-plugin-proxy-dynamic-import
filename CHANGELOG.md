@@ -1,4 +1,15 @@
+# `rollup-plugin-proxy-dynamic-import` changelog
+
 <!-- CHLOG_SPLIT_MARKER -->
+
+## [v0.1.4](https://github.com/ydcjeff/rollup-plugin-proxy-dynamic-import/compare/v0.1.3...v0.1.4)
+
+_2023-01-29_
+
+### Bug Fixes
+
+- [`512e383`](https://github.com/ydcjeff/rollup-plugin-proxy-dynamic-import/commit/512e383)
+  make rollup dep optional
 
 ## [v0.1.3](https://github.com/ydcjeff/rollup-plugin-proxy-dynamic-import/compare/v0.1.2...v0.1.3)
 

@@ -1,8 +1,8 @@
 {
 	"name": "rollup-plugin-proxy-dynamic-import",
-	"version": "0.1.3",
+	"version": "0.1.4",
 	"type": "module",
-	"description": "Proxy dynamic import: Only bundle static imports of dynamic imports, and treeshake out those static imports from dynamic imports",
+	"description": "Bundle static imported bindings from modules which will be dynamically imported somewhere, and treeshake those static imported bindings from the dynamic imported modules",
 	"prettier": "@ydcjeff/configs/prettier",
 	"repository": {
 		"url": "https://github.com/ydcjeff/rollup-plugin-proxy-dynamic-import"
