@@ -1,4 +1,5 @@
 import { createFilter, FilterPattern } from '@rollup/pluginutils';
+import { Plugin } from 'vite';
 
 export interface ProxyDynamicImportOptions {
 	/**
@@ -25,3 +26,5 @@ export interface ProxyDynamicImportOptions {
 	 */
 	extensions?: string[];
 }
+
+export function proxy_dynamic_import(opts: ProxyDynamicImportOptions): Plugin;
