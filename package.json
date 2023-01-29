@@ -1,0 +1,45 @@
+{
+	"name": "rollup-plugin-proxy-dynamic-import",
+	"version": "0.1.0",
+	"type": "module",
+	"description": "Proxy dynamic import: Only bundle static imports of dynamic imports, and treeshake out those static imports from dynamic imports",
+	"prettier": "@ydcjeff/configs/prettier",
+	"author": "Jeff Yang",
+	"license": "MIT",
+	"keywords": [
+		"rollup-plugin",
+		"vite-plugin",
+		"proxy-dynamic-import"
+	],
+	"types": "./src/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./src/index.d.ts",
+			"import": "./src/mod.js"
+		}
+	},
+	"scripts": {
+		"check": "prettier -c . --ignore-path .gitignore && pnpm run lint",
+		"lint": "eslint . --ignore-path .gitignore",
+		"fmt": "prettier -w . --ignore-path .gitignore",
+		"test": "pnpm run -r test"
+	},
+	"peerDependencies": {
+		"rollup": "^3.0.0",
+		"vite": "^4.0.0"
+	},
+	"dependencies": {
+		"@rollup/pluginutils": "^5.0.2"
+	},
+	"devDependencies": {
+		"@types/node": "18.11.18",
+		"@ydcjeff/configs": "0.4.16",
+		"eslint": "8.33.0",
+		"prettier": "2.8.3",
+		"rollup": "3.12.0",
+		"tiny-glob": "0.2.9",
+		"typescript": "4.9.4",
+		"vite": "4.0.4",
+		"vitest": "0.28.3"
+	}
+}

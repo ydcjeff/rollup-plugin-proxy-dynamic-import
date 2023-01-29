@@ -1,0 +1,187 @@
+// Vitest Snapshot v1
+
+exports[`rollup > js > js 1`] = `
+"function load() {
+	return 'js_entry_load';
+}
+
+const actions = {
+	default() {
+		return 'js_entry_actions';
+	},
+};
+
+export { actions, load };
+"
+`;
+
+exports[`rollup > js > js 2`] = `
+"function load() {
+	return 'js_non_entry_load';
+}
+
+const actions = {
+	default() {
+		return 'js_non_entry_actions';
+	},
+};
+
+export { actions, load };
+"
+`;
+
+exports[`rollup > js_ext > js_ext 1`] = `
+"function load() {
+	return 'js_ext_entry_load';
+}
+
+const actions = {
+	default() {
+		return 'js_ext_entry_actions';
+	},
+};
+
+export { actions, load };
+"
+`;
+
+exports[`rollup > js_ext > js_ext 2`] = `
+"function load() {
+	return 'js-ext-page';
+}
+
+const actions = {
+	default() {
+		return 'js-ext-page';
+	},
+};
+
+export { actions, load };
+"
+`;
+
+exports[`rollup > ts > ts 1`] = `
+"function load() {
+	return 'ts_entry_load';
+}
+
+const actions = {
+	default() {
+		return 'ts_entry_actions';
+	},
+};
+
+export { actions, load };
+"
+`;
+
+exports[`rollup > ts > ts 2`] = `
+"function load() {
+	return 'ts_non_entry_load';
+}
+
+const actions = {
+	default() {
+		return 'ts_non_entry_actions';
+	},
+};
+
+export { actions, load };
+"
+`;
+
+exports[`vite > js > js 1`] = `
+"function load() {
+  return \\"js_entry_load\\";
+}
+const actions = {
+  default() {
+    return \\"js_entry_actions\\";
+  }
+};
+export {
+  actions,
+  load
+};
+"
+`;
+
+exports[`vite > js > js 2`] = `
+"function load() {
+  return \\"js_non_entry_load\\";
+}
+const actions = {
+  default() {
+    return \\"js_non_entry_actions\\";
+  }
+};
+export {
+  actions,
+  load
+};
+"
+`;
+
+exports[`vite > js_ext > js_ext 1`] = `
+"function load() {
+  return \\"js_ext_entry_load\\";
+}
+const actions = {
+  default() {
+    return \\"js_ext_entry_actions\\";
+  }
+};
+export {
+  actions,
+  load
+};
+"
+`;
+
+exports[`vite > js_ext > js_ext 2`] = `
+"function load() {
+  return \\"js-ext-page\\";
+}
+const actions = {
+  default() {
+    return \\"js-ext-page\\";
+  }
+};
+export {
+  actions,
+  load
+};
+"
+`;
+
+exports[`vite > ts > ts 1`] = `
+"function load() {
+  return \\"ts_entry_load\\";
+}
+const actions = {
+  default() {
+    return \\"ts_entry_actions\\";
+  }
+};
+export {
+  actions,
+  load
+};
+"
+`;
+
+exports[`vite > ts > ts 2`] = `
+"function load() {
+  return \\"ts_non_entry_load\\";
+}
+const actions = {
+  default() {
+    return \\"ts_non_entry_actions\\";
+  }
+};
+export {
+  actions,
+  load
+};
+"
+`;
