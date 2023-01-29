@@ -2,6 +2,15 @@
 
 <!-- CHLOG_SPLIT_MARKER -->
 
+## [v0.1.6](https://github.com/ydcjeff/rollup-plugin-proxy-dynamic-import/compare/v0.1.5...v0.1.6)
+
+_2023-01-29_
+
+### Features
+
+- [`f8eba05`](https://github.com/ydcjeff/rollup-plugin-proxy-dynamic-import/commit/f8eba05)
+  export the plugin as default export
+
 ## [v0.1.5](https://github.com/ydcjeff/rollup-plugin-proxy-dynamic-import/compare/v0.1.4...v0.1.5)
 
 _2023-01-29_
