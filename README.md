@@ -1,16 +1,113 @@
 # rollup-plugin-proxy-dynamic-import
 
-<a href="https://www.npmjs.com/package/rollup-plugin-proxy-dynamic-import" target="_blank" rel="noopener">
-<img alt="npm" src="https://img.shields.io/npm/v/rollup-plugin-proxy-dynamic-import">
-</a>
+[![npm version](https://img.shields.io/npm/v/rollup-plugin-proxy-dynamic-import)](https://www.npmjs.com/package/rollup-plugin-proxy-dynamic-import)
+[![ci](https://github.com/ydcjeff/rollup-plugin-proxy-dynamic-import/actions/workflows/ci.yml/badge.svg)](https://github.com/ydcjeff/rollup-plugin-proxy-dynamic-import/actions/workflows/ci.yml)
 
 > Bundle static imported bindings from modules which will be dynamically
 > imported somewhere, and treeshake those static imported bindings from the
 > dynamic imported modules
 
+> **Note**
+>
+> This plugin is only used in build time.
+
 ```sh
 pnpm add rollup-plugin-proxy-dynamic-import -D
 ```
+
+In a nutshell, this plugin does this (using SvelteKit naming conventions as an
+example):
+
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Output</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>
+
+```js
+// +page.js
+
+// This exported `route_config` will get
+// bundled into router.js and treeshake out
+// from this module after build.
+export const route_config = {
+	path: '/',
+	component: () => import('./comp.vue'),
+	meta: {
+		service: () => import('./+page.js'),
+	},
+};
+
+export function load() {
+	// omitted for example
+	return { a: 1 };
+}
+
+export const actions = {
+	default() {
+		// omitted for example
+		throw redirect('/user/123');
+	},
+};
+```
+
+```js
+// router.js
+import { route_config } from './+page.js';
+
+export const router = createRouter({
+	routes: [route_config],
+});
+```
+
+</td>
+
+<td>
+
+```js
+// _page-[hash].js
+
+// Notice that there is no `route_config`
+export function load() {
+	// omitted for example
+	return { a: 1 };
+}
+
+export const actions = {
+	default() {
+		// omitted for example
+		throw redirect('/user/123');
+	},
+};
+```
+
+```js
+// router-[hash].js
+
+// Hey, I got bundled into router.js
+const route_config = {
+	path: '/',
+	component: () => import('./comp-[hash].vue'),
+	meta: {
+		service: () => import('./_page-[hash].js'),
+	},
+};
+
+export const router = createRouter({
+	routes: [route_config],
+});
+```
+
+</td>
+</tr>
+</tbody>
+</table>
 
 ## Motivation
 
