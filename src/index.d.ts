@@ -18,8 +18,8 @@ export interface ProxyDynamicImportOptions {
 	 *
 	 * https://github.com/rollup/rollup/issues/3447
 	 *
-	 * Export names to re-export. Use `*` to re-export all, not that it does not
-	 * re-export `default` export.
+	 * Export names to re-export. Use `*` to re-export all, note that it does not
+	 * re-export `default` export. To re-export `default`, use `default`.
 	 */
 	reexports?: string[] | '*';
 	/**
@@ -35,3 +35,4 @@ export interface ProxyDynamicImportOptions {
 }
 
 export function proxy_dynamic_import(opts: ProxyDynamicImportOptions): Plugin;
+export default function (opts: ProxyDynamicImportOptions): Plugin;

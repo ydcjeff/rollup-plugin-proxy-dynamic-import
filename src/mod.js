@@ -8,12 +8,14 @@ const FACADE_QUERY = PREFIX + 'facade';
 const STATIC_QUERY = PREFIX + 'static';
 const DEFAULT_EXTENSIONS = ['.js', '.ts', '.jsx', '.tsx', '.mjs'];
 
+export { proxy_dynamic_import };
+export default proxy_dynamic_import;
+
 /**
- *
  * @param {import('./index').ProxyDynamicImportOptions} opts
  * @returns {import('vite').Plugin}
  */
-export function proxy_dynamic_import(opts) {
+function proxy_dynamic_import(opts) {
 	const name = 'proxy-dynamic-import';
 	const { include, exclude, reexports } = opts;
 	if (!include) {
