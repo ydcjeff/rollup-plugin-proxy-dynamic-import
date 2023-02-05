@@ -33,7 +33,7 @@ function vite_read(file) {
  * @param {string} file
  */
 function run_test(name, is_rollup, file) {
-	test(name, () => {
+	test(path.posix.join(name, file), () => {
 		file = path.join(name, file);
 		const content = is_rollup ? rollup_read(file) : vite_read(file);
 		expect(content).toMatchSnapshot();
@@ -42,14 +42,9 @@ function run_test(name, is_rollup, file) {
 
 /**
  * @param {boolean} is_rollup
+ * @param {Record<string, string[]>} file_map
  */
-function run_all_tests(is_rollup) {
-	const file_map = {
-		js: ['_js_entry.js', '_js_non_entry.js'],
-		js_ext: ['_js_ext_entry.js', '_js_ext_non_entry.js'],
-		ts: ['_ts_entry.js', '_ts_non_entry.js'],
-	};
-
+function run_all_tests(is_rollup, file_map) {
 	for (const [dir, files] of Object.entries(file_map)) {
 		describe(dir, () => {
 			for (const file of files) {
@@ -59,10 +54,20 @@ function run_all_tests(is_rollup) {
 	}
 }
 
+const file_map = {
+	js: ['_js_entry.js', '../c/_js.js'],
+	js_ext: ['_js_ext_entry.js', '../c/_js_ext.js'],
+	ts: ['_ts_entry.js', '../c/_ts.js'],
+	app: ['../app.js'],
+};
+
 describe('rollup', () => {
-	run_all_tests(true);
+	run_all_tests(true, file_map);
 });
 
 describe('vite', () => {
-	run_all_tests(false);
+	run_all_tests(false, {
+		...file_map,
+		import_meta_glob: ['_glob_entry.js', '../c/_glob.js'],
+	});
 });

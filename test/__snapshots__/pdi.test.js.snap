@@ -1,21 +1,63 @@
 // Vitest Snapshot v1
 
-exports[`rollup > js > js 1`] = `
-"function load() {
-	return 'js_entry_load';
-}
-
-const actions = {
-	default() {
-		return 'js_entry_actions';
+exports[`rollup > app > app.js 1`] = `
+"const js_non_entry = {
+	meta: {
+		api: () => import('./c/_js.js'),
 	},
 };
 
-export { actions, load };
+const js_entry = {
+	meta: {
+		api: () => import('./js/_js_entry.js'),
+	},
+};
+
+const js_ext_non_entry = {
+	meta: {
+		api: () => import('./c/_js_ext.js'),
+	},
+};
+
+const js_ext_entry = {
+	meta: {
+		api: () => import('./js_ext/_js_ext_entry.js'),
+	},
+};
+
+const ts_non_entry = {
+	meta: {
+		api: () => import('./c/_ts.js'),
+	},
+};
+
+const ts_entry = {
+	meta: {
+		api: () => import('./ts/_ts_entry.js'),
+	},
+};
+
+/// <reference types=\\"vite/client\\" />
+
+const globs = import.meta.glob('./import_meta_glob/*.js', {
+	eager: true,
+	import: 'glob',
+});
+
+// eslint-disable-next-line no-console
+console.log({
+	globs,
+	js_entry,
+	js_ext_entry,
+	js_ext_non_entry,
+	js_non_entry,
+	ts_entry,
+	ts_non_entry,
+});
 "
 `;
 
-exports[`rollup > js > js 2`] = `
+exports[`rollup > js > c/_js.js 1`] = `
 "function load() {
 	return 'js_non_entry_load';
 }
@@ -30,14 +72,14 @@ export { actions, load };
 "
 `;
 
-exports[`rollup > js_ext > js_ext 1`] = `
+exports[`rollup > js > js/_js_entry.js 1`] = `
 "function load() {
-	return 'js_ext_entry_load';
+	return 'js_entry_load';
 }
 
 const actions = {
 	default() {
-		return 'js_ext_entry_actions';
+		return 'js_entry_actions';
 	},
 };
 
@@ -45,7 +87,7 @@ export { actions, load };
 "
 `;
 
-exports[`rollup > js_ext > js_ext 2`] = `
+exports[`rollup > js_ext > c/_js_ext.js 1`] = `
 "function load() {
 	return 'js_ext_non_entry_load';
 }
@@ -60,14 +102,14 @@ export { actions, load };
 "
 `;
 
-exports[`rollup > ts > ts 1`] = `
+exports[`rollup > js_ext > js_ext/_js_ext_entry.js 1`] = `
 "function load() {
-	return 'ts_entry_load';
+	return 'js_ext_entry_load';
 }
 
 const actions = {
 	default() {
-		return 'ts_entry_actions';
+		return 'js_ext_entry_actions';
 	},
 };
 
@@ -75,7 +117,7 @@ export { actions, load };
 "
 `;
 
-exports[`rollup > ts > ts 2`] = `
+exports[`rollup > ts > c/_ts.js 1`] = `
 "function load() {
 	return 'ts_non_entry_load';
 }
@@ -90,13 +132,99 @@ export { actions, load };
 "
 `;
 
-exports[`vite > js > js 1`] = `
+exports[`rollup > ts > ts/_ts_entry.js 1`] = `
 "function load() {
-  return \\"js_entry_load\\";
+	return 'ts_entry_load';
+}
+
+const actions = {
+	default() {
+		return 'ts_entry_actions';
+	},
+};
+
+export { actions, load };
+"
+`;
+
+exports[`vite > app > app.js 1`] = `
+"const page$1 = {
+  meta: {
+    api: () => import(\\"./c/_page_1.js\\")
+  }
+};
+const page = {
+  meta: {
+    api: () => import(\\"./c/_page_2.js\\")
+  }
+};
+const pages$1 = /* @__PURE__ */ Object.assign({ \\"./pages/+page_1.js\\": page$1, \\"./pages/+page_2.js\\": page });
+const glob$1 = {
+  pages: /* @__PURE__ */ Object.values(pages$1),
+  meta: {
+    api: () => import(\\"./c/_glob.js\\")
+  }
+};
+const pages = /* @__PURE__ */ Object.assign({ \\"./pages/+page_1.js\\": page$1, \\"./pages/+page_2.js\\": page });
+const glob = {
+  pages: /* @__PURE__ */ Object.values(pages),
+  meta: {
+    api: () => import(\\"./import_meta_glob/_glob_entry.js\\")
+  }
+};
+const js_non_entry = {
+  meta: {
+    api: () => import(\\"./c/_js.js\\")
+  }
+};
+const js_entry = {
+  meta: {
+    api: () => import(\\"./js/_js_entry.js\\")
+  }
+};
+const js_ext_non_entry = {
+  meta: {
+    api: () => import(\\"./c/_js_ext.js\\")
+  }
+};
+const js_ext_entry = {
+  meta: {
+    api: () => import(\\"./js_ext/_js_ext_entry.js\\")
+  }
+};
+const ts_non_entry = {
+  meta: {
+    api: () => import(\\"./c/_ts.js\\")
+  }
+};
+const ts_entry = {
+  meta: {
+    api: () => import(\\"./ts/_ts_entry.js\\")
+  }
+};
+const globs = /* @__PURE__ */ Object.assign({
+  \\"./import_meta_glob/+glob.js\\": glob$1,
+  \\"./import_meta_glob/+glob_entry.js\\": glob
+});
+console.log({
+  globs,
+  js_entry,
+  js_ext_entry,
+  js_ext_non_entry,
+  js_non_entry,
+  ts_entry,
+  ts_non_entry
+});
+"
+`;
+
+exports[`vite > import_meta_glob > c/_glob.js 1`] = `
+"function load() {
+  return \\"glob_non_entry_load\\";
 }
 const actions = {
   default() {
-    return \\"js_entry_actions\\";
+    return \\"glob_non_entry_actions\\";
   }
 };
 export {
@@ -106,7 +234,23 @@ export {
 "
 `;
 
-exports[`vite > js > js 2`] = `
+exports[`vite > import_meta_glob > import_meta_glob/_glob_entry.js 1`] = `
+"function load() {
+  return \\"glob_entry_load\\";
+}
+const actions = {
+  default() {
+    return \\"glob_entry_actions\\";
+  }
+};
+export {
+  actions,
+  load
+};
+"
+`;
+
+exports[`vite > js > c/_js.js 1`] = `
 "function load() {
   return \\"js_non_entry_load\\";
 }
@@ -122,13 +266,13 @@ export {
 "
 `;
 
-exports[`vite > js_ext > js_ext 1`] = `
+exports[`vite > js > js/_js_entry.js 1`] = `
 "function load() {
-  return \\"js_ext_entry_load\\";
+  return \\"js_entry_load\\";
 }
 const actions = {
   default() {
-    return \\"js_ext_entry_actions\\";
+    return \\"js_entry_actions\\";
   }
 };
 export {
@@ -138,7 +282,7 @@ export {
 "
 `;
 
-exports[`vite > js_ext > js_ext 2`] = `
+exports[`vite > js_ext > c/_js_ext.js 1`] = `
 "function load() {
   return \\"js_ext_non_entry_load\\";
 }
@@ -154,13 +298,13 @@ export {
 "
 `;
 
-exports[`vite > ts > ts 1`] = `
+exports[`vite > js_ext > js_ext/_js_ext_entry.js 1`] = `
 "function load() {
-  return \\"ts_entry_load\\";
+  return \\"js_ext_entry_load\\";
 }
 const actions = {
   default() {
-    return \\"ts_entry_actions\\";
+    return \\"js_ext_entry_actions\\";
   }
 };
 export {
@@ -170,13 +314,29 @@ export {
 "
 `;
 
-exports[`vite > ts > ts 2`] = `
+exports[`vite > ts > c/_ts.js 1`] = `
 "function load() {
   return \\"ts_non_entry_load\\";
 }
 const actions = {
   default() {
     return \\"ts_non_entry_actions\\";
+  }
+};
+export {
+  actions,
+  load
+};
+"
+`;
+
+exports[`vite > ts > ts/_ts_entry.js 1`] = `
+"function load() {
+  return \\"ts_entry_load\\";
+}
+const actions = {
+  default() {
+    return \\"ts_entry_actions\\";
   }
 };
 export {

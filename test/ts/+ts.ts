@@ -1,6 +1,6 @@
 export const ts_non_entry = {
 	meta: {
-		api: () => import('./+ts_non_entry'),
+		api: () => import('./+ts'),
 	},
 };
 

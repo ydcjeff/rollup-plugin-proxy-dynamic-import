@@ -1,6 +1,6 @@
 export const js_non_entry = {
 	meta: {
-		api: () => import('./+js_non_entry'),
+		api: () => import('./+js'),
 	},
 };
 
