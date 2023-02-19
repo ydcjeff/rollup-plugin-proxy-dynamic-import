@@ -25,6 +25,12 @@ const js_ext_entry = {
 	},
 };
 
+const partial_export = {
+	meta: {
+		api: () => import('./c/_partial_exports.js'),
+	},
+};
+
 const ts_non_entry = {
 	meta: {
 		api: () => import('./c/_ts.js'),
@@ -53,6 +59,7 @@ console.log({
 	js_non_entry,
 	ts_entry,
 	ts_non_entry,
+	partial_export,
 });
 "
 `;
@@ -192,6 +199,11 @@ const js_ext_entry = {
     api: () => import(\\"./js_ext/_js_ext_entry.js\\")
   }
 };
+const partial_export = {
+  meta: {
+    api: () => import(\\"./c/_partial_exports.js\\")
+  }
+};
 const ts_non_entry = {
   meta: {
     api: () => import(\\"./c/_ts.js\\")
@@ -213,7 +225,8 @@ console.log({
   js_ext_non_entry,
   js_non_entry,
   ts_entry,
-  ts_non_entry
+  ts_non_entry,
+  partial_export
 });
 "
 `;

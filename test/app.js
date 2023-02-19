@@ -4,6 +4,7 @@ import { js_non_entry } from './js/+js';
 import { js_entry } from './js/+js_entry';
 import { js_ext_non_entry } from './js_ext/+js_ext';
 import { js_ext_entry } from './js_ext/+js_ext_entry';
+import { partial_export } from './partial_exports/+partial_exports.js';
 import { ts_non_entry } from './ts/+ts';
 import { ts_entry } from './ts/+ts_entry';
 
@@ -21,4 +22,5 @@ console.log({
 	js_non_entry,
 	ts_entry,
 	ts_non_entry,
+	partial_export,
 });

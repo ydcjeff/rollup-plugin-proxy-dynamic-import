@@ -76,11 +76,19 @@ function proxy_dynamic_import(opts) {
 			}
 
 			if (reexports?.length && id.endsWith(FACADE_QUERY)) {
-				const mod = JSON.stringify(id.replace(FACADE_QUERY, ''));
+				id = id.replace(FACADE_QUERY, '');
+				const mod = JSON.stringify(id);
 				if (reexports === '*') {
 					return `export * from ${mod};`;
 				} else {
-					return `export { ${reexports.join(',')} } from ${mod};`;
+					const module_info = await this.load({ id });
+					const module_exports = module_info.exports;
+					if (module_exports) {
+						const filtered_exports = reexports.filter((v) =>
+							module_exports.includes(v),
+						);
+						return `export { ${filtered_exports.join(',')} } from ${mod};`;
+					}
 				}
 			}
 		},
