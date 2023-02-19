@@ -2,6 +2,15 @@
 
 <!-- CHLOG_SPLIT_MARKER -->
 
+## [v0.1.7](https://github.com/ydcjeff/rollup-plugin-proxy-dynamic-import/compare/v0.1.6...v0.1.7)
+
+_2023-02-19_
+
+### Bug Fixes
+
+- [`e662a51`](https://github.com/ydcjeff/rollup-plugin-proxy-dynamic-import/commit/e662a51)
+  filter re-exports since not all modules can contain all defined exports
+
 ## [v0.1.6](https://github.com/ydcjeff/rollup-plugin-proxy-dynamic-import/compare/v0.1.5...v0.1.6)
 
 _2023-01-29_
