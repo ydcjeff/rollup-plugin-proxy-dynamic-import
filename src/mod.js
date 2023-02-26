@@ -43,13 +43,14 @@ function proxy_dynamic_import(opts) {
 
 		resolveId: {
 			order: 'pre',
-			handler(source, importer, { isEntry }) {
+			async handler(source, importer, { isEntry }) {
 				if (importer?.endsWith(FACADE_QUERY)) {
-					return importer.replace(FACADE_QUERY, '');
+					return null;
 				}
 
 				const file = lets_resolve(source, filter, importer, extensions);
 				if (file) {
+					await this.load({ id: file });
 					// Rollup by default creates a separate chunk when the source is
 					// statically imported somewhere and given as an entry in the `input` option
 					// However, we only want to bundle the statically imported bindings, and
@@ -63,9 +64,10 @@ function proxy_dynamic_import(opts) {
 		},
 
 		// this is required for non-entry dynamic imports
-		resolveDynamicImport(source, importer) {
+		async resolveDynamicImport(source, importer) {
 			const file = lets_resolve(source, filter, importer, extensions);
 			if (file && reexports?.length) {
+				await this.load({ id: file });
 				return file + FACADE_QUERY;
 			}
 		},
@@ -81,8 +83,7 @@ function proxy_dynamic_import(opts) {
 				if (reexports === '*') {
 					return `export * from ${mod};`;
 				} else {
-					const module_info = await this.load({ id });
-					const module_exports = module_info.exports;
+					const module_exports = this.getModuleInfo(id)?.exports;
 					if (module_exports) {
 						const filtered_exports = reexports.filter((v) =>
 							module_exports.includes(v),
