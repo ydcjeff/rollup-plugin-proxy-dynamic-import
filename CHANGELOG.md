@@ -2,6 +2,15 @@
 
 <!-- CHLOG_SPLIT_MARKER -->
 
+## [v0.1.8](https://github.com/ydcjeff/rollup-plugin-proxy-dynamic-import/compare/v0.1.7...v0.1.8)
+
+_2023-02-26_
+
+### Bug Fixes
+
+- [`4f9937b`](https://github.com/ydcjeff/rollup-plugin-proxy-dynamic-import/commit/4f9937b)
+  call load hook in resolve hook to avoid deadlock
+
 ## [v0.1.7](https://github.com/ydcjeff/rollup-plugin-proxy-dynamic-import/compare/v0.1.6...v0.1.7)
 
 _2023-02-19_
