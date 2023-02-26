@@ -2,6 +2,12 @@
 
 <!-- CHLOG_SPLIT_MARKER -->
 
+## [v0.1.9](https://github.com/ydcjeff/rollup-plugin-proxy-dynamic-import/compare/v0.1.8...v0.1.9)
+
+_2023-02-26_
+
+_No significant changes_
+
 ## [v0.1.8](https://github.com/ydcjeff/rollup-plugin-proxy-dynamic-import/compare/v0.1.7...v0.1.8)
 
 _2023-02-26_
